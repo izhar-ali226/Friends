@@ -1,0 +1,8 @@
+.signup{
+  
+        display: flex;
+        justify-content: center;
+        height: 555px ;
+        align-items: center;
+        background-color: white;
+    }

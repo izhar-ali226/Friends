@@ -1,0 +1,22 @@
+.login{
+    display: flex;
+    justify-content: center;
+    height: 555px ;
+    align-items: center;
+    background-color: white;
+}
+form#normal_login{
+    background-color: #ededed;
+    border-radius: 12px ;
+    padding: 43px;
+    box-shadow: 3px 3px 7px 4px #888;
+}
+
+.heading{
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.login-form-button{
+    margin-bottom: 10px;
+}
