@@ -1,0 +1,35 @@
+.form{
+    background-color: #FAFAFA;
+    padding: 5px 5px;
+    border: 1px dashed rgb(216, 216, 216);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 95%;
+    margin: auto;
+}
+.form:hover{
+    border: 1px dashed blue;
+
+}
+.anticon-inbox  >svg{
+    font-size: 36px;
+    color: #40a9ff;
+}
+
+.fileInput{
+    width: 23%;
+    padding: 8px 0px;
+    margin: 7px auto;
+    font-size: 15px;
+
+}
+
+.ant-upload-hint{
+    color: rgb(124 124 124 / 85%);
+}
+
+.progress{
+    width: 26%;
+    margin: auto;
+}
