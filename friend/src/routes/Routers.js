@@ -8,8 +8,8 @@ import Home from '../components/home/Home';
 const Routers = () => {
     return (
         <AppRoutes>
-            <Route path="/" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route  path="/" element={<Login />} />
+            <Route  path="/signup" element={<Signup />} />
             <Route path="/home" element={<Home />} />
             
         </AppRoutes>
