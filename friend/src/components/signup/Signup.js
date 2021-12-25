@@ -5,30 +5,34 @@ import { Link } from 'react-router-dom';
 import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth,db, collection, addDoc } from '../firebase';
+import { useNavigate } from 'react-router';
 
 
 
 const Signup = () => {
-
+  const navigate=useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [userID, setUserID] = useState('');
   const submitHandler = (event) => {
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user
-        console.log(user, 'created')
-        // history.push('/Teams')
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        console.log(errorMessage)
-      })
+    .then((userCredential) => {
+      // Signed in
+      const user = userCredential.user.uid
+      setUserID(user)
+      console.log(user, 'created')  
+      navigate("/")
+
+      // history.push('/Teams')
+    })
+    .catch((error) => {
+      const errorCode = error.code
+      const errorMessage = error.message
+      console.log(errorMessage)
+    })
       const collectionRef= collection(db, "Contact Info");
-      const payload={name:name, email:email, password: password};
+      const payload={name: name, email: email, password: password, userID: userID  };
      addDoc(collectionRef, payload)
  
   }

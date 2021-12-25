@@ -24,11 +24,13 @@ function Login() {
     // e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        navigate("/home")
         // Signed in
         const user = userCredential.user
         console.log(user, 'signed in')
-        // history.push('/Teams')
+
+        const userLocalStorage= localStorage.setItem('userdata', JSON.stringify(user))
+        console.log(userLocalStorage);        
+        navigate("/home")
       })
       .catch((error) => {
         // const errorCode = error.code
@@ -36,10 +38,13 @@ function Login() {
         console.log(errorMessage)
       })
   }
+
+ 
+  
+
   const authListener = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-
       }
     });
   }
@@ -107,4 +112,5 @@ function Login() {
 
 
 
-export default Login
+export default Login;
+
