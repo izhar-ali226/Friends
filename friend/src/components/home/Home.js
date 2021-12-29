@@ -2,13 +2,42 @@ import "./home.css";
 import Feed from '../messageSender/messageSender'
 import React, { useState, useEffect } from "react";
 import { Form, Button, Avatar } from "antd";
+import { Menu } from 'antd';
+import { Image } from 'antd';
 import { InboxOutlined, UserOutlined } from "@ant-design/icons";
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 import { getDownloadURL, uploadBytesResumable } from "@firebase/storage";
 import {setDoc, doc, query, onSnapshot, collection } from "@firebase/firestore";
 import { storage, ref, db } from "../firebase";
 import SearchBar from "../searchBar/SearchBar";
+import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from 'react-router';
+import {onAuthStateChanged } from "firebase/auth";
+import logo from '../../../src/logo.png'
+
+
+
 
 function Home() {
+  let navigate = useNavigate();
+const logout=()=>{
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    navigate("/signup")
+  }).catch((error) => {
+    console.log(' not logout')
+  });
+}
+
+const auth = getAuth();
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const uid = user.uid;
+
+  } else {
+    logout()
+  }
+});
   const [progress, setProgress] = useState(0);
 //   const [images, setImage] = useState([]);
   const [usersdp, setUsersdp] = useState([]);
@@ -95,11 +124,31 @@ usersdp.map((element) => {
 })
 // console.log("image here " + url);
 
-
+const { SubMenu } = Menu;
 
 
     
     return (
+      <>
+      <div>
+      <Menu  mode="horizontal">
+        <Menu.Item >
+      <Image  
+        width={200}
+        preview={false}
+        src={logo}>
+        </Image>
+        </Menu.Item>
+        <Menu.Item key="app" >
+        <Avatar className="headerAvator " src={url} size={44} icon={<UserOutlined />} />
+        <span className="headerSpan">{names}</span>
+        </Menu.Item>
+        <Menu.Item key="app" icon={<SettingOutlined style={{ fontSize: '150%', margin: '14px 8px'}} />} title="Setting">Setting</Menu.Item>
+      <form className="logoutCss" onClick={logout}>
+        <button className="logoutCsss">Logout</button>
+      </form>
+      </Menu>
+      </div>
     <div>
       <form className="form" onSubmit={handleUploadImage}>
         <InboxOutlined className=".ant-upload" />
@@ -124,6 +173,7 @@ usersdp.map((element) => {
         <SearchBar placeholder="Search" />
           <Feed/>
     </div>
+    </>
   );
 }
 

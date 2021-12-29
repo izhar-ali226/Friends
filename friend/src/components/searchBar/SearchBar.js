@@ -68,7 +68,7 @@ function SearchBar({ placeholder }) {
         />
         <div className="searchIcon">
           {filteredData.length === 0 ? (
-            <SearchOutlined />
+            <SearchOutlined/>
           ) : (
             <CloseOutlined id="clearBtn" onClick={clearInput} />
           )}
@@ -76,8 +76,8 @@ function SearchBar({ placeholder }) {
       </div>
       {filteredData.length !== 0 && (
         <div className="dataResult">
-          {/* <Link  to={getData} className="dataItem"  target="_blank">{newFilter}</Link> */}
-          <p>{filteredData} </p>
+          <Link  to={getData} className="dataItem"  target="_blank">{filteredData}</Link>
+          {/* <p>{filteredData} </p> */}
         </div>
       )}
     </div>

@@ -42,20 +42,21 @@ function Post(props) {
             });
         }
     }, [])
+    
 
     let message = '';
     let url = '';
-    let postId = ''
+    let postId = '';
 
     const showPosts = posts.map((element, pos) => {
         message = element.message;
-        url = element.urlsrc;
+        url= element.urlsrc;
         postId = element.postId;
         
         return (
             <div className="post">
             <div className="post_top">
-                <Avatar   className="post_avatar" />
+                <Avatar src={url}   className="post_avatar" />
                 <div className="post_topInfo">
                     <h3> {props.name}</h3>
                 </div>

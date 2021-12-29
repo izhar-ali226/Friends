@@ -102,7 +102,6 @@ let names=''
                         onChange={(e) => setMessage(e.target.value)}
                         type="text" />
                     <input type='file' placeholder="image" onChange={handleImage} />
-                    <button  type="submit">Hidden submit</button>
                 </form>
             </div>
             <Post name={names} />

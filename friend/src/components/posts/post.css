@@ -1,10 +1,9 @@
-.post{
+.post {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 32px;
     border-radius: 12px;
     background-color: white;
-    box-shadow: 5px 5px 7px -7px rgb(0 ,0 ,0 , 0.75);
-
+    box-shadow: 7px 7px 27px -13px rgb(0 0 0 / 61%);
 }
 
 .post_img img{
@@ -25,6 +24,10 @@
 .post_topInfo{
     font-size: small;
 }
+.post_topInfo >h3{
+    margin: 3px 11px;
+}
+
 
 .post_topInfo >p{
     font-size: 13px;

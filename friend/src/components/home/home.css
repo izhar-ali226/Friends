@@ -33,3 +33,35 @@
     width: 26%;
     margin: auto;
 }
+
+span.ant-avatar.ant-avatar-circle.ant-avatar-icon.headerAvator{
+    width: 44px;
+    height: 44px;
+    line-height: 37px;
+    font-size: 22px;
+    margin: 6px 15px;
+
+}
+
+.headerSpan{
+    font-weight: bold;
+    font-size: 15px;
+}
+.ant-menu-horizontal > .ant-menu-item::after
+{
+  border-bottom: none !important;
+  transition: none !important;
+}
+
+.logoutCss{
+        background: #1890ff;
+        border: none;
+        margin: 4px 8px;
+        padding: 0px 29px;
+        border-radius: 5px;
+    }
+.logoutCsss{
+        background: #1890ff;
+        border: none;
+        border-radius: 5px;
+    }
